@@ -1,35 +1,10 @@
 <?php
-// Defino la clase Genre
-    class Genre {
-    public $name;
+//importo la CLASSE GENRE
+require_once __DIR__ . '/Models/genre.php';
+//importo la CLASSE MOVIE
+require_once __DIR__ . '/Models/Movie.php';
 
-    public function __construct($name) {
-        $this->name = $name;
-    }
-}
-//creo la CLASSE MOVIE
-class Movie {
-    //definisco le PROPRIETA'
-    public $title;
-    public $year;
-    public $genre;
-    //definisco il COSTRUTTORE
 
-    public function __construct ($title, $year, Genre $genre){
-
-     //assegno i valori alle PROPRIETA' usando this
-     $this -> title = $title;
-     $this -> year = $year;
-     $this -> genre = $genre;
-    }
-
-   
-
-    //definisco un METODO
-    public function getMovieInfo() {
-        return $this -> title . " ( " . $this -> genre -> name. " ) " . $this -> year;
-    }
-}
 
 
     //creo le ISTANZE GENRE
@@ -40,7 +15,7 @@ class Movie {
     $movie1 = new Movie ("Star Wars Una Nuova Speranza", 1977, $fantascienza);
     $movie2 = new Movie ("Spiderman", 2022, $azione);
 
- echo '<pre>';
+echo '<pre>';
 var_dump($movie1);
 echo '</pre>';
 
@@ -51,9 +26,12 @@ echo '</pre>';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>movies</title>
 </head>
 <body>
     <h1>Movies - OPP</h1>
+    <p><?= $movie1->getMovieInfo() ?></p>
+    <p><?= $movie2->getMovieInfo() ?></p>
 </body>
 </html>
