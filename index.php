@@ -1,30 +1,49 @@
 <?php
-//creo la CLASSE MOVIE
+// Defino la clase Genre
+    class Genre {
+    public $name;
 
+    public function __construct($name) {
+        $this->name = $name;
+    }
+}
+//creo la CLASSE MOVIE
 class Movie {
     //definisco le PROPRIETA'
     public $title;
-    public $genre;
     public $year;
-
+    public $genre;
     //definisco il COSTRUTTORE
 
-    public function __construct ($title, $genre, $year){
+    public function __construct ($title, $year, Genre $genre){
 
      //assegno i valori alle PROPRIETA' usando this
-
      $this -> title = $title;
-     $this -> genre = $genre;
      $this -> year = $year;
-    }
-
-    //definisco un METODO
-    public function getMovieInfo() {
-        return $this -> title . " ( " . $this -> genre . " ) " . $this -> year;
+     $this -> genre = $genre;
     }
 
    
+
+    //definisco un METODO
+    public function getMovieInfo() {
+        return $this -> title . " ( " . $this -> genre -> name. " ) " . $this -> year;
+    }
 }
+
+
+    //creo le ISTANZE GENRE
+    $fantascienza = new Genre("Fantascienza");
+    $azione = new Genre("Azione");
+
+    //definisco le instanze
+    $movie1 = new Movie ("Star Wars Una Nuova Speranza", 1977, $fantascienza);
+    $movie2 = new Movie ("Spiderman", 2022, $azione);
+
+ echo '<pre>';
+var_dump($movie1);
+echo '</pre>';
+
 
 ?>
 <!DOCTYPE html>
