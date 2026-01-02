@@ -4,9 +4,6 @@ require_once __DIR__ . '/Models/genre.php';
 //importo la CLASSE MOVIE
 require_once __DIR__ . '/Models/Movie.php';
 
-
-
-
     //creo le ISTANZE GENRE
     $fantascienza = new Genre("Fantascienza");
     $azione = new Genre("Azione");
@@ -15,9 +12,13 @@ require_once __DIR__ . '/Models/Movie.php';
     $movie1 = new Movie ("Star Wars Una Nuova Speranza", 1977, $fantascienza);
     $movie2 = new Movie ("Spiderman", 2022, $azione);
 
-echo '<pre>';
-var_dump($movie1);
-echo '</pre>';
+   //setto la DURATA dei film
+ $movie1 -> setDuration (121);
+ $movie2 -> setDuration (130);
+ echo '<pre>';
+ var_dump($movie1);
+ var_dump($movie2);
+ echo '</pre>';
 
 
 ?>

@@ -1,13 +1,17 @@
-
 <?php
+require_once 'trait/HasDuration.php';
 //creo la CLASSE MOVIE
 class Movie {
+
+   use HasDuration; //importo il TRAIT HasDuration
+
     //definisco le PROPRIETA'
     public $title;
     public $year;
     protected Genre $genre;
-    //definisco il COSTRUTTORE
 
+
+    //definisco il COSTRUTTORE
     public function __construct ($title, $year, Genre $genre){
 
      //assegno i valori alle PROPRIETA' usando this
