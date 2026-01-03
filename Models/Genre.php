@@ -1,7 +1,7 @@
 <?php
 // Defino la clase Genre
     class Genre {
-    protected $name;
+    public $name;
 
     public function __construct($name) {
         $this->name = $name;

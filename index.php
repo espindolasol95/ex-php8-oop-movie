@@ -1,25 +1,6 @@
 <?php
-//importo la CLASSE GENRE
-require_once __DIR__ . '/Models/genre.php';
-//importo la CLASSE MOVIE
-require_once __DIR__ . '/Models/Movie.php';
-
-    //creo le ISTANZE GENRE
-    $fantascienza = new Genre("Fantascienza");
-    $azione = new Genre("Azione");
-
-    //definisco le instanze
-    $movie1 = new Movie ("Star Wars Una Nuova Speranza", 1977, $fantascienza);
-    $movie2 = new Movie ("Spiderman", 2022, $azione);
-
-   //setto la DURATA dei film
- $movie1 -> setDuration (121);
- $movie2 -> setDuration (130);
- echo '<pre>';
- var_dump($movie1);
- var_dump($movie2);
- echo '</pre>';
-
+//importo db.php
+require_once __DIR__ . '/Db.php';
 
 ?>
 <!DOCTYPE html>
@@ -31,8 +12,26 @@ require_once __DIR__ . '/Models/Movie.php';
     <title>movies</title>
 </head>
 <body>
-    <h1>Movies - OPP</h1>
-    <p><?= $movie1->getMovieInfo() ?></p>
-    <p><?= $movie2->getMovieInfo() ?></p>
+    <div class="contenitore">
+        <div class="row">
+            <h1 class='text-center my-4'>BoolFilm List</h1>
+            <div class="col">
+               <?php foreach ($movies as $movie): ?>
+            <div class="col-md-3 mb-1">
+                <div class="card p-3 shadow-sm">
+                    <h5 class="card-title"><?= $movie->title ?></h5>
+                    <p class="card-text">Genere: <?= $movie->getGenre()->name ?></p>
+                    <p class="card-text">Anno: <?= $movie->year ?></p>
+                    <p class="card-text">Durata: <?= $movie->getDuration() ?> min</p>
+                </div>
+            </div>
+        <?php endforeach; ?>
+         
+
+            
+
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -11,9 +11,9 @@ public function setDuration($duration){
 }
 
 
-public function getDuration( ){
-
-    return $this -> $duration; // ritorno il valore della PROPRIETA'
+public function getDuration(){
+    
+    return $this -> duration; // ritorno il valore della PROPRIETA'
 }
 
 

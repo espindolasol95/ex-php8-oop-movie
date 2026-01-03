@@ -1,5 +1,5 @@
 <?php
-require_once 'trait/HasDuration.php';
+require_once 'Trait/HasDuration.php';
 //creo la CLASSE MOVIE
 class Movie {
 
@@ -21,10 +21,17 @@ class Movie {
     }
 
    
+    
+     public function getGenre() {
+        return $this->genre;
+    }
 
     //definisco un METODO
     public function getMovieInfo() {
-        return $this -> title;
+        return $this->title 
+             . " (" . $this->genre->name . ") "
+             . $this->year
+             . " - " . $this->duration . " min";
     }
 }
 
